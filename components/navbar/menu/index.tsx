@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import styles from './styles.module.scss';
 import MenuContent from './menu-content';
@@ -11,14 +13,18 @@ const Menu: React.FC = () => {
 	};
 
 	useEffect(() => {
-		if (isActive) {
-			document.body.style.overflow = 'hidden';
-		} else {
-			document.body.style.overflow = '';
+		if (typeof window !== 'undefined') {
+			if (isActive) {
+				document.body.style.overflow = 'hidden';
+			} else {
+				document.body.style.overflow = '';
+			}
 		}
 
 		return () => {
-			document.body.style.overflow = '';
+			if (typeof window !== 'undefined') {
+				document.body.style.overflow = '';
+			}
 		};
 	}, [isActive]);
 
