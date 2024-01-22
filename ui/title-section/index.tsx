@@ -1,31 +1,18 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import { ITitleSectionProps } from './interface';
+import { ITitleSection } from './interface';
 
-const TitleSection: React.FC<ITitleSectionProps> = ({
-	title,
-	topPadding,
-	color,
-	showDot = false,
-	subtitle,
-}) => {
-	const dynamicStyles = {
-		'--top-padding': topPadding,
+const TitleSection: React.FC<ITitleSection> = ({ title, showSpan, showDot, color }) => {
+	const dynamicStyle = {
 		color: color,
-		'--subtitle-text': `"${subtitle}"`,
-	} as React.CSSProperties;
-
+	};
 	return (
-		<>
-			<h3
-				className={`${styles.title} ${showDot ? styles.showDot : ''} ${
-					subtitle ? styles.showSubtitle : ''
-				}`}
-				style={dynamicStyles}
-			>
+		<div className={styles.container}>
+			<h3 className={`${showDot ? styles.showDot : ''}`} style={dynamicStyle}>
 				{title}
 			</h3>
-		</>
+			{showSpan && <span className='text-white'>2021</span>}
+		</div>
 	);
 };
 

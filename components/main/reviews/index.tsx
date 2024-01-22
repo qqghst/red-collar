@@ -1,30 +1,31 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import styles from './styles.module.scss';
 import Slider from './slider';
 import { slideData } from './slider/data';
 import { reviewSlideAnimation } from '@/utils/animationMenu';
 import { AnimatePresence, motion } from 'framer-motion';
-import ButtonsCircleTransform from '@/ui/buttons-circle-transform';
-import TitleSection from '@/ui/title-section';
+import ButtonTwoCircles from '@/ui/buttons-two-circles';
 import Counter from './counter';
+import TitleSection from '@/ui/title-section';
 
 const Reviews: React.FC = () => {
 	const [currentSlide, setCurrentSlide] = useState(0);
 
 	const totalSlides = slideData.length;
 
-	const nextSlide = () => {
+	const nextSlide = useCallback(() => {
 		setCurrentSlide((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
-	};
+	}, [totalSlides]);
 
-	const prevSlide = () => {
+	const prevSlide = useCallback(() => {
 		setCurrentSlide((prev) => (prev === 0 ? totalSlides - 1 : prev - 1));
-	};
+	}, [totalSlides]);
 
 	return (
 		<>
-			<TitleSection title='отзывы' color='white' topPadding='552.5vw' />
-
+			<div className='absolute top-[300px] z-[10000]'>
+				<TitleSection title='отзывы' showSpan={false} showDot={false} color='white' />
+			</div>
 			<section className={styles.reviews}>
 				<div className={styles.reviews__container}>
 					<div className={styles.sliderContainer}>
@@ -51,7 +52,7 @@ const Reviews: React.FC = () => {
 							<Counter currentSlide={currentSlide} totalSlides={totalSlides} />
 						</div>
 						<div className={styles.button}>
-							<ButtonsCircleTransform nextSlide={nextSlide} prevSlide={prevSlide} />
+							<ButtonTwoCircles nextSlide={nextSlide} prevSlide={prevSlide} />
 						</div>
 					</div>
 				</div>

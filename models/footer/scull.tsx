@@ -15,9 +15,8 @@ import { motion } from 'framer-motion-3d';
 import { useUnit } from 'effector-react';
 import { $hoverStore } from '@/store';
 import useMouseMovement from '@/hooks/useMouseMovement';
-import useColorShift from '@/hooks/useColorShift';
-import fragment from '@/shaders/masthead/fragment.glsl';
-import vertex from '@/shaders/masthead/vertex.glsl';
+import fragment from '@/shaders/face/fragment.glsl';
+import vertex from '@/shaders/face/vertex.glsl';
 import env1 from '@/public/main/masthead/1.webp';
 import env2 from '@/public/main/masthead/2.webp';
 import env3 from '@/public/main/masthead/3.webp';
@@ -27,6 +26,7 @@ import env6 from '@/public/main/masthead/6.webp';
 import env7 from '@/public/main/masthead/7.webp';
 import env8 from '@/public/main/masthead/8.webp';
 import envWhite from '@/public/main/masthead/white.webp';
+import useColorShift from '@/hooks/useColorShift';
 
 type GLTFResult = GLTF & {
 	nodes: {
@@ -68,9 +68,8 @@ export function SkullFooter({
 	...props
 }: { visible: boolean } & JSX.IntrinsicElements['group']) {
 	const { nodes, materials } = useGLTF('/footer/skull.glb') as GLTFResult;
-
-	const mouse = useMouseMovement();
 	const colorShiftRef = useColorShift(textures);
+	const mouse = useMouseMovement();
 
 	return (
 		<motion.group {...(props as any)} dispose={null} rotation-y={mouse.x} rotation-x={mouse.y}>

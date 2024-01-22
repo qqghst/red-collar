@@ -4,12 +4,12 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	gap: 16px;
-	color: white;
+	gap: 1vw; //16, 1600
+	color: $color-white;
 	align-self: flex-start;
 
 	hr {
-		width: 140px;
+		width: 8.75vw; //140, 1600
         border: 0.5px solid $color-grey-dark;
 	}
 }

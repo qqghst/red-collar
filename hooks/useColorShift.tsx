@@ -1,4 +1,4 @@
-//хук для изменения цвета модели при ховере
+//хук для изменения текстуры модели при ховере
 
 import { useEffect, useState, useRef } from 'react';
 import * as THREE from 'three';

@@ -4,17 +4,17 @@ import React from 'react';
 import styles from './styles.module.scss';
 import Image from 'next/image';
 
-interface IButtonSCircleTransformProps {
+interface IButtonTwoCirclesProps {
 	nextSlide: any;
 	prevSlide: any;
 }
 
-const ButtonSCircleTransform: React.FC<IButtonSCircleTransformProps> = ({ nextSlide, prevSlide }) => {
+const ButtonTwoCircles: React.FC<IButtonTwoCirclesProps> = ({ nextSlide, prevSlide }) => {
 	return (
 		<div className={styles.circleContainer}>
 			<button className={styles.leftButton} onClick={prevSlide}>
 				<Image
-					src='/reviews/arrow-left.svg'
+					src='/main/reviews/arrow-left.svg'
 					width={64 / 2}
 					height={64 / 2}
 					alt='arrow-left'
@@ -22,7 +22,7 @@ const ButtonSCircleTransform: React.FC<IButtonSCircleTransformProps> = ({ nextSl
 			</button>
 			<button className={styles.rightButton} onClick={nextSlide}>
 				<Image
-					src='/reviews/arrow-right.svg'
+					src='/main/reviews/arrow-right.svg'
 					width={64 / 2}
 					height={64 / 2}
 					alt='arrow-left'
@@ -33,4 +33,4 @@ const ButtonSCircleTransform: React.FC<IButtonSCircleTransformProps> = ({ nextSl
 	);
 };
 
-export default ButtonSCircleTransform;
+export default ButtonTwoCircles;

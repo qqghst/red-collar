@@ -24,14 +24,29 @@ const Home: React.FC = () => {
 	return (
 		<main className={styles.main}>
 			<Masthead />
-			<Projects />
-			<Services />
-			<TwiceBest />
-			<Awards />
-			<Ratings />
-			<Clients />
-			<Reviews />
-			<Socials />
+
+			{/* <Projects /> */}
+
+			{/* ГОТОВО */}
+			{/* <Services /> */}
+
+			{/* ГОТОВО */}
+			{/* <TwiceBest /> */}
+
+			{/* ГОТОВО */}
+			{/* <Awards /> */}
+
+			{/* ГОТОВО */}
+			{/* <Ratings /> */}
+
+			{/* ГОТОВО */}
+			{/* <Clients /> */}
+
+			{/* ГОТОВО */}
+			{/* <Reviews /> */}
+
+			{/* ГОТОВО */}
+			{/* <Socials /> */}
 		</main>
 	);
 };

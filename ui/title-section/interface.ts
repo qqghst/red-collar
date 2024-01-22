@@ -1,7 +1,6 @@
-export interface ITitleSectionProps {
+export interface ITitleSection {
 	title: string;
-	topPadding: string;
+	showSpan: boolean;
+	showDot: boolean;
 	color: string;
-	showDot?: boolean;
-	subtitle?: string;
 }

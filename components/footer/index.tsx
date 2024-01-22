@@ -28,7 +28,9 @@ const Footer: React.FC = () => {
 
 	return (
 		<>
-			<TitleSection title='контакты' color='black' topPadding='10970px' />
+			<div className='absolute top-[300px] z-[10000]'>
+				<TitleSection title='контакты' showSpan={false} showDot={false} color='#fafafa' />
+			</div>
 			<footer className={styles.footer}>
 				<div className={styles.footer__container}>
 					<div className={styles.bigText}>

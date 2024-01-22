@@ -1,9 +1,10 @@
+@import '../../../../styles/variables';
+
 .slider {
 	display: flex;
 	flex-direction: column;
 	gap: 4vw; //64, 1600
-    // height: 400px; 
-    // overflow: scroll;
+	height: 25vw; //400, 1600
 
 	.person {
 		display: flex;
@@ -12,23 +13,23 @@
 		gap: 2vw; //32, 1600
 
 		div:nth-child(2) {
-			color: white;
+			color: $color-white;
 
 			span:nth-child(1) {
-				font-size: 20px;
+				font-size: 1.25vw; //20, 1600
 				font-weight: 600;
 				line-height: 100%;
 				letter-spacing: -0.02em;
 			}
 			p:nth-child(2) {
+				font-size: 1vw; //16px, 1600
 				font-weight: 500;
-				font-size: 16px;
 				line-height: 160%;
-				color: #343434;
+				color: $color-grey-dark;
 				margin-bottom: 5px;
 			}
 			span:nth-child(3) {
-				font-size: 20px;
+				font-size: 1.25vw; //20, 1600
 				font-weight: 600;
 				line-height: 100%;
 				letter-spacing: -0.02em;
@@ -40,11 +41,11 @@
 		width: 48.75vw; //780, 1600
 
 		p {
-			font-size: 22px;
+			font-size: 1.375vw; //22, 1600
 			line-height: 140%;
 			// letter-spacing: 0.02em;
 			font-weight: 500;
-			color: white;
+			color: $color-white;
 			margin-left: 0.02em;
 		}
 	}

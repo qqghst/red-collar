@@ -1,12 +1,14 @@
 @import '../../../styles/variables';
 
-.marquee {
+.clients {
 	&__container {
 		background-color: $color-black;
 		padding-bottom: 11.25vw; //180px, 1600
 
 		.imgWrapper {
-			margin: 32px 64px;
+			margin: 2vw 4vw; //32 64, 1600
 		}
 	}
 }
+
+

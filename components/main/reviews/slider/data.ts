@@ -1,7 +1,7 @@
 export const slideData = [
 	{
 		id: 1,
-		src: '/reviews/1.webp',
+		src: '/main/reviews/1.webp',
 		name: 'Вера подгузова',
 		jobTitle: 'Старший вице-президент, директор дирекции по внешним связям',
 		company: 'ПСБ',
@@ -9,7 +9,7 @@ export const slideData = [
 	},
 	{
 		id: 2,
-		src: '/reviews/2.webp',
+		src: '/main/reviews/2.webp',
 		name: 'Дмитрий Журавлев',
 		jobTitle: 'Партнёр по работе с персоналом',
 		company: 'MegaLabs',
@@ -17,7 +17,7 @@ export const slideData = [
 	},
 	{
 		id: 3,
-		src: '/reviews/3.webp',
+		src: '/main/reviews/3.webp',
 		name: 'Ксения Иванова',
 		jobTitle: 'Партнер по работе с персоналом',
 		company: 'Gett',
@@ -25,7 +25,7 @@ export const slideData = [
 	},
 	{
 		id: 4,
-		src: '/reviews/4.webp',
+		src: '/main/reviews/4.webp',
 		name: 'Алексей Лола',
 		jobTitle: 'Директор департамента цифрового розничного бизнеса',
 		company: 'Росбанк',

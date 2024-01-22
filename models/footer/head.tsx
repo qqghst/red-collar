@@ -15,8 +15,8 @@ import { motion } from 'framer-motion-3d';
 import { useUnit } from 'effector-react';
 import { $hoverStore } from '@/store';
 import useMouseMovement from '@/hooks/useMouseMovement';
-import fragment from '@/shaders/masthead/fragment.glsl';
-import vertex from '@/shaders/masthead/vertex.glsl';
+import fragment from '@/shaders/face/fragment.glsl';
+import vertex from '@/shaders/face/vertex.glsl';
 import env1 from '@/public/main/masthead/1.webp';
 import env2 from '@/public/main/masthead/2.webp';
 import env3 from '@/public/main/masthead/3.webp';
@@ -26,6 +26,7 @@ import env6 from '@/public/main/masthead/6.webp';
 import env7 from '@/public/main/masthead/7.webp';
 import env8 from '@/public/main/masthead/8.webp';
 import envWhite from '@/public/main/masthead/white.webp';
+import useColorShift from '@/hooks/useColorShift';
 
 type GLTFResult = GLTF & {
 	nodes: {
@@ -62,60 +63,13 @@ const ColorShiftMaterial = shaderMaterial(
 
 extend({ ColorShiftMaterial });
 
-// export function HeadFooter(props: JSX.IntrinsicElements['group']) {
 export function HeadFooter({
 	visible,
 	...props
 }: { visible: boolean } & JSX.IntrinsicElements['group']) {
 	const { nodes, materials } = useGLTF('/footer/face.glb') as GLTFResult;
-
-	// const materialRef = useRef();
-	const materialRef = useRef<THREE.ShaderMaterial>();
-	const isHovering = useUnit($hoverStore);
-	const [textureIndex, setTextureIndex] = useState(0);
+	const colorShiftRef = useColorShift(textures);
 	const mouse = useMouseMovement();
-
-	useEffect(() => {
-		if (isHovering) {
-			setTextureIndex((prevIndex) => (prevIndex + 1) % textures.length);
-		}
-	}, [isHovering]);
-
-	useEffect(() => {
-		if (materialRef.current) {
-			materialRef.current.uniforms.textureIndex.value = textureIndex;
-		}
-	}, [textureIndex]);
-
-	useFrame((state, delta) => {
-		if (materialRef.current && materialRef.current.uniforms) {
-			if (isHovering) {
-				materialRef.current.uniforms.time.value += delta;
-			}
-			const targetProgress = isHovering ? 1.6 : -2.0;
-			materialRef.current.uniforms.progress.value = THREE.MathUtils.lerp(
-				materialRef.current.uniforms.progress.value,
-				targetProgress,
-				delta * 4,
-			);
-		}
-	});
-
-	useFrame((state, delta) => {
-		if (materialRef.current && materialRef.current.uniforms) {
-			if (isHovering) {
-				materialRef.current.uniforms.time.value += delta;
-			}
-
-			// Обновляем progress при ховере
-			const targetProgress = isHovering ? 1.6 : -2.0;
-			materialRef.current.uniforms.progress.value = THREE.MathUtils.lerp(
-				materialRef.current.uniforms.progress.value,
-				targetProgress,
-				delta * 0.01,
-			);
-		}
-	});
 
 	return (
 		<motion.group {...(props as any)} dispose={null} rotation-y={mouse.x} rotation-x={mouse.y}>
@@ -128,8 +82,7 @@ export function HeadFooter({
 				scale={2.5}
 				visible={visible}
 			>
-				{/* <meshMatcapMaterial matcap={texture} /> */}
-				<colorShiftMaterial ref={materialRef} />
+				<colorShiftMaterial ref={colorShiftRef} />
 			</mesh>
 		</motion.group>
 	);

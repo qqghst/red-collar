@@ -17,7 +17,7 @@ const SwiperComponent: React.FC = () => {
 	const moveTimeout = useRef(null);
 
 	const handleTouchMove = useCallback((swiper: { touches: { diff: number } }) => {
-		const angle = swiper.touches.diff / 64;
+		const angle = swiper.touches.diff / 56;
 		setCurrentAngle(angle);
 		setIsDragging(true);
 
@@ -84,7 +84,7 @@ const SwiperComponent: React.FC = () => {
 							transform: `rotateY(${currentAngle}deg) scale(${
 								isDragging ? 0.95 : 1
 							})`,
-							transition: 'transform 0.4s ease-out',
+							transition: 'transform 0.6s ease-out',
 						}}
 					/>
 					<p>{item.text}</p>

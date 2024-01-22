@@ -8,9 +8,11 @@ import TitleSection from '@/ui/title-section';
 const Clients: React.FC = () => {
 	return (
 		<>
-			<TitleSection title='клиенты' color='white' topPadding='515.625vw' />
-			<section className={styles.marquee}>
-				<div className={styles.marquee__container}>
+			<div className='absolute top-[300px] z-[10000]'>
+				<TitleSection title='отзывы' showSpan={false} showDot={false} color='#fafafa' />
+			</div>
+			<section className={styles.clients}>
+				<div className={styles.clients__container}>
 					<Marquee direction='right' speed={55}>
 						{data.map((item, index) => (
 							<div className={styles.imgWrapper} key={index}>

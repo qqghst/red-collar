@@ -2,13 +2,17 @@ import React, { useEffect, useRef, useState } from 'react';
 import styles from './styles.module.scss';
 import Social from './social';
 import SwiperComponent from './swiper';
-import TitleSection from '@/ui/title-section';
+
 import { dataSocial } from './social/data';
+import TitleSection from '@/ui/title-section';
 
 const Socials: React.FC = () => {
 	return (
 		<>
-			<TitleSection title='соцсети' color='white' topPadding='608.75vw' />
+			<div className='absolute top-[100px] z-[10000]'>
+				<TitleSection title='соцсети' showSpan={false} showDot={false} color='#fafafa' />
+			</div>
+
 			<section className={styles.follow}>
 				<div className={styles.follow__container}>
 					<div className={styles.socials}>

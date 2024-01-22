@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import styles from './styles.module.scss';
 import { Canvas } from '@react-three/fiber';
 import { Environment } from '@react-three/drei';
-import { Coin } from '@/models/navbar/menu/coin';
+import { Coin } from '@/models/coin';
 
 const TwiceBest: React.FC = () => {
 	return (

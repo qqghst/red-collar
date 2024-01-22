@@ -1,3 +1,4 @@
+//для изменения моделей при скролле (используется в projects)
 import React, { useEffect, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { MathUtils } from 'three';
