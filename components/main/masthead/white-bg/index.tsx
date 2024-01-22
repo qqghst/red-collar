@@ -12,18 +12,18 @@ const WhiteBg: React.FC = () => {
 					<Canvas shadows>
 						<ambientLight intensity={1} />
 						<Environment preset='studio' />
-						<Bounds fit clip>
-							<Float
-								speed={2}
-								rotationIntensity={1}
-								floatIntensity={0}
-								floatingRange={[0, 0]}
-							>
-								<Suspense fallback={null}>
-									<FaceModel />
-								</Suspense>
-							</Float>
-						</Bounds>
+						<Float
+							speed={2}
+							rotationIntensity={1}
+							floatIntensity={0}
+							floatingRange={[0, 0]}
+						>
+							<Suspense fallback={null}>
+								<FaceModel />
+							</Suspense>
+						</Float>
+						{/* <Bounds fit clip>
+						</Bounds> */}
 					</Canvas>
 				</div>
 			</div>
