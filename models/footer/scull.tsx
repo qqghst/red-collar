@@ -81,7 +81,8 @@ export function SkullFooter({
 				material={materials.defaultMat}
 				rotation={[-Math.PI / 2, 0, 0]}
 				visible={visible}
-				scale={1}
+				scale={2.4}
+				position={[0, 0.6, 0]}
 			>
 				<colorShiftMaterial ref={colorShiftRef} />
 			</mesh>

@@ -7,7 +7,7 @@ import TitleSection from '@/ui/title-section';
 const Ratings = () => {
 	return (
 		<>
-			<TitleSection title='рейтинги' topPadding='3384px' />
+			<TitleSection title='рейтинги' color='white' topPadding='460.5vw' />
 			<section className={styles.ratings}>
 				<div className={styles.ratings__container}>
 					<p className={styles.pp}>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './styles.module.scss';
 import MenuContent from './menu-content';
 import { AnimatePresence } from 'framer-motion';
@@ -9,6 +9,18 @@ const Menu: React.FC = () => {
 	const handleMenuToggle = () => {
 		setIsActive(!isActive);
 	};
+
+	useEffect(() => {
+		if (isActive) {
+			document.body.style.overflow = 'hidden';
+		} else {
+			document.body.style.overflow = '';
+		}
+
+		return () => {
+			document.body.style.overflow = '';
+		};
+	}, [isActive]);
 
 	return (
 		<>

@@ -12,7 +12,7 @@ const WhiteBg: React.FC = () => {
 					<Canvas shadows>
 						<ambientLight intensity={1} />
 						<Environment preset='studio' />
-						<Bounds fit clip observe>
+						<Bounds fit clip>
 							<Float
 								speed={2}
 								rotationIntensity={1}

@@ -79,8 +79,8 @@ export function FaceModel(props: JSX.IntrinsicElements['group']) {
 				receiveShadow
 				geometry={nodes.Object_5.geometry}
 				material={materials.material}
-				position={[0.009, -2.5, 0.325]}
-				scale={3}
+				position={[0.009, -3, 0.325]}
+				scale={3.6}
 			>
 				<colorShiftMaterial ref={colorShiftRef} />
 			</mesh>

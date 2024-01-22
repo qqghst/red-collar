@@ -8,7 +8,7 @@ import TitleSection from '@/ui/title-section';
 const Clients: React.FC = () => {
 	return (
 		<>
-			<TitleSection title='клиенты' topPadding='3200px' />
+			<TitleSection title='клиенты' color='white' topPadding='515.625vw' />
 			<section className={styles.marquee}>
 				<div className={styles.marquee__container}>
 					<Marquee direction='right' speed={55}>

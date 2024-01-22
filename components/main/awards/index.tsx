@@ -6,45 +6,44 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 const Awards: React.FC = () => {
-	const sectionRef = useRef<HTMLDivElement>(null); // Adjust this to match your element type
+	const sectionRef = useRef<HTMLDivElement>(null);
 
-	useEffect(() => {
-		gsap.registerPlugin(ScrollTrigger);
+	// useEffect(() => {
+	// 	gsap.registerPlugin(ScrollTrigger);
 
-		const tl = gsap.timeline({
-			scrollTrigger: {
-				trigger: sectionRef.current,
-				start: '+=100px bottom',
-				end: 'center center',
-				scrub: 1, // Smooth scrubbing, adjust timing to suit
-				markers: true, // Remove in production
-			},
-		});
+	// 	const tl = gsap.timeline({
+	// 		scrollTrigger: {
+	// 			trigger: sectionRef.current,
+	// 			start: '+=100px bottom',
+	// 			end: 'center center',
+	// 			scrub: 1,
+	// 			markers: true,
+	// 		},
+	// 	});
 
-		tl.fromTo(
-			sectionRef.current,
-			{
-				y: 160, // Adjust starting position if needed
-				opacity: 0,
-			},
-			{
-				y: 0,
-				opacity: 1,
-				duration: 0.4, // Adjust duration as needed
-				ease: 'power3.out',
-			},
-		);
+	// 	tl.fromTo(
+	// 		sectionRef.current,
+	// 		{
+	// 			y: 160,
+	// 			opacity: 0,
+	// 		},
+	// 		{
+	// 			y: 0,
+	// 			opacity: 1,
+	// 			duration: 0.4,
+	// 			ease: 'power3.out',
+	// 		},
+	// 	);
 
-		return () => {
-			// Clean up ScrollTrigger instance
-			if (tl.scrollTrigger) {
-				tl.scrollTrigger.kill();
-			}
-		};
-	}, []);
+	// 	return () => {
+	// 		if (tl.scrollTrigger) {
+	// 			tl.scrollTrigger.kill();
+	// 		}
+	// 	};
+	// }, []);
 	return (
 		<>
-			<TitleSection title='награды' topPadding='170.75vw' />
+			<TitleSection title='награды' color='white' topPadding='419.875vw' />
 			<section className={styles.awards} ref={sectionRef}>
 				<div className={styles.awards__container}>
 					<Award number='08' image='/awards/webby-awards.svg' label='Webby Awards' />

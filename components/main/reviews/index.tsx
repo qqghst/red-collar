@@ -22,38 +22,41 @@ const Reviews: React.FC = () => {
 	};
 
 	return (
-		<section className={styles.reviews}>
-			<TitleSection title='отзывы' topPadding='4000px' />
-			<div className={styles.reviews__container}>
-				<div className={styles.sliderContainer}>
-					<div className={styles.sliderAndCounter}>
-						<AnimatePresence mode='wait'>
-							<motion.div
-								key={slideData[currentSlide].id}
-								variants={reviewSlideAnimation}
-								initial='initial'
-								animate='enter'
-								exit='exit'
-							>
-								<Slider
-									key={slideData[currentSlide].id}
-									src={slideData[currentSlide].src}
-									name={slideData[currentSlide].name}
-									jobTitle={slideData[currentSlide].jobTitle}
-									company={slideData[currentSlide].company}
-									review={slideData[currentSlide].review}
-								/>
-							</motion.div>
-						</AnimatePresence>
+		<>
+			<TitleSection title='отзывы' color='white' topPadding='552.5vw' />
 
-						<Counter currentSlide={currentSlide} totalSlides={totalSlides} />
-					</div>
-					<div className={styles.button}>
-						<ButtonsCircleTransform nextSlide={nextSlide} prevSlide={prevSlide} />
+			<section className={styles.reviews}>
+				<div className={styles.reviews__container}>
+					<div className={styles.sliderContainer}>
+						<div className={styles.sliderAndCounter}>
+							<AnimatePresence mode='wait'>
+								<motion.div
+									key={slideData[currentSlide].id}
+									variants={reviewSlideAnimation}
+									initial='initial'
+									animate='enter'
+									exit='exit'
+								>
+									<Slider
+										key={slideData[currentSlide].id}
+										src={slideData[currentSlide].src}
+										name={slideData[currentSlide].name}
+										jobTitle={slideData[currentSlide].jobTitle}
+										company={slideData[currentSlide].company}
+										review={slideData[currentSlide].review}
+									/>
+								</motion.div>
+							</AnimatePresence>
+
+							<Counter currentSlide={currentSlide} totalSlides={totalSlides} />
+						</div>
+						<div className={styles.button}>
+							<ButtonsCircleTransform nextSlide={nextSlide} prevSlide={prevSlide} />
+						</div>
 					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+		</>
 	);
 };
 

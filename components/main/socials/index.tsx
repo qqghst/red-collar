@@ -7,25 +7,27 @@ import { dataSocial } from './social/data';
 
 const Socials: React.FC = () => {
 	return (
-		<section className={styles.follow}>
-			<TitleSection title='соцсети' topPadding='4684px' />
-			<div className={styles.follow__container}>
-				<div className={styles.socials}>
-					{dataSocial.map((item, index) => (
-						<Social
-							key={index}
-							label={item.label}
-							color={item.color}
-							color2={item.color}
-							afterColor={item.color}
-						/>
-					))}
+		<>
+			<TitleSection title='соцсети' color='white' topPadding='608.75vw' />
+			<section className={styles.follow}>
+				<div className={styles.follow__container}>
+					<div className={styles.socials}>
+						{dataSocial.map((item, index) => (
+							<Social
+								key={index}
+								label={item.label}
+								color={item.color}
+								color2={item.color}
+								afterColor={item.color}
+							/>
+						))}
+					</div>
+					<div className={styles.swiper}>
+						<SwiperComponent />
+					</div>
 				</div>
-				<div className={styles.swiper}>
-					<SwiperComponent />
-				</div>
-			</div>
-		</section>
+			</section>
+		</>
 	);
 };
 
