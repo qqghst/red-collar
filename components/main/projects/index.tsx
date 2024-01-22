@@ -20,26 +20,27 @@ import ButtonTest from '@/ui/button-test';
 const Projects: React.FC = () => {
 	const expandedStore = useUnit($ExpandedStore);
 	const backgroundColorStore = useUnit($BackgroundColorStore);
-	const changeBackgroundColor = useCallback((color) => {
+	const changeBackgroundColor = useCallback((color: any) => {
 		hoverProject(color);
 	}, []);
 
 	const resetBackgroundColor = useCallback(() => {
 		unhoverProject();
 	}, []);
+	type ModelName = 'TorusKnot' | 'Torus' | 'Icosahedron' | 'Tetrahedron';
 
-	const torusKnotRef = useRef(null);
-	const torusRef = useRef(null);
-	const icosahedronRef = useRef(null);
-	const tetrahedronRef = useRef(null);
+	const torusKnotRef = useRef<HTMLDivElement>(null);
+	const torusRef = useRef<HTMLDivElement>(null);
+	const icosahedronRef = useRef<HTMLDivElement>(null);
+	const tetrahedronRef = useRef<HTMLDivElement>(null);
 
-	const [visibleModel, setVisibleModel] = useState('TorusKnot');
-	const [startAnimatingModel, setStartAnimatingModel] = useState(null);
+	const [visibleModel, setVisibleModel] = useState<ModelName | null>('TorusKnot');
+	const [startAnimatingModel, setStartAnimatingModel] = useState<ModelName | null>(null);
 	const [isHovered, setIsHovered] = useState(false);
-	const [hoveredModel, setHoveredModel] = useState(null);
+	const [hoveredModel, setHoveredModel] = useState<ModelName | null>(null);
 
 	const changeModel = useCallback(
-		(newModel) => {
+		(newModel: ModelName) => {
 			if (visibleModel !== newModel) {
 				setStartAnimatingModel(visibleModel);
 				setTimeout(() => {
@@ -52,10 +53,10 @@ const Projects: React.FC = () => {
 	);
 
 	const checkVisibility = useCallback(() => {
-		const torusKnotPos = torusKnotRef.current.getBoundingClientRect().top;
-		const torusPos = torusRef.current.getBoundingClientRect().top;
-		const icosahedronPos = icosahedronRef.current.getBoundingClientRect().top;
-		const tetrahedronPos = tetrahedronRef.current.getBoundingClientRect().top;
+		const torusKnotPos = torusKnotRef.current?.getBoundingClientRect().top ?? 0;
+		const torusPos = torusRef.current?.getBoundingClientRect().top ?? 0;
+		const icosahedronPos = icosahedronRef.current?.getBoundingClientRect().top ?? 0;
+		const tetrahedronPos = tetrahedronRef.current?.getBoundingClientRect().top ?? 0;
 
 		if (isHovered) {
 			if (
@@ -134,15 +135,18 @@ const Projects: React.FC = () => {
 		return () => {
 			window.removeEventListener('scroll', checkVisibility);
 		};
-	}, [visibleModel, isHovered]);
+	}, [checkVisibility]);
 
-	const handleMouseEnter = (model) => {
-		if (visibleModel !== model) {
-			changeModel(model);
-			setIsHovered(true);
-			setHoveredModel(model);
-		}
-	};
+	const handleMouseEnter = useCallback(
+		(model: ModelName) => {
+			if (visibleModel !== model) {
+				changeModel(model);
+				setIsHovered(true);
+				setHoveredModel(model);
+			}
+		},
+		[changeModel],
+	);
 
 	const dynamicStyle = useMemo(
 		() => ({
@@ -151,6 +155,21 @@ const Projects: React.FC = () => {
 		}),
 		[backgroundColorStore],
 	);
+
+	// Вынесите логику в функции выше компонента
+	const onMouseEnter = useCallback(
+		(backgroundColor: string, model: ModelName) => {
+			changeBackgroundColor(backgroundColor);
+			changeModel(model);
+			hoverMannequin();
+		},
+		[changeBackgroundColor, changeModel],
+	);
+
+	const onMouseLeave = useCallback(() => {
+		resetHoverMannequin();
+		resetBackgroundColor();
+	}, [resetBackgroundColor]);
 
 	return (
 		<div className={styles.projects}>
@@ -163,6 +182,9 @@ const Projects: React.FC = () => {
 						letters='тамо • ос'
 						subtitle='логистика'
 						description='О разработке высоконагруженного сервиса для таможенного оформления'
+						// onMouseEnter={() => onMouseEnter('#FFFFFF', 'TorusKnot')}
+						// onMouseLeave={onMouseLeave}
+
 						onMouseEnter={() => {
 							changeBackgroundColor('#FFFFFF');
 							handleMouseEnter('TorusKnot');
@@ -277,4 +299,4 @@ const Projects: React.FC = () => {
 	);
 };
 
-export default Projects;
+export default React.memo(Projects);

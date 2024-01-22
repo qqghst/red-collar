@@ -73,7 +73,7 @@ export function SkullFooter({
 	const colorShiftRef = useColorShift(textures);
 
 	return (
-		<motion.group {...props} dispose={null} rotation-y={mouse.x} rotation-x={mouse.y}>
+		<motion.group {...(props as any)} dispose={null} rotation-y={mouse.x} rotation-x={mouse.y}>
 			<mesh
 				castShadow
 				receiveShadow
