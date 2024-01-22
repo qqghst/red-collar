@@ -8,7 +8,12 @@ import { menuSlide } from '@/utils/animationMenu';
 import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { Environment } from '@react-three/drei';
-import { Coin } from '@/models/coin';
+// import { Coin } from '@/models/coin';
+import dynamic from 'next/dynamic';
+
+const Coin = dynamic(() => import('@/models/coin'), {
+	ssr: false,
+});
 
 const MenuContent: React.FC = () => {
 	return (

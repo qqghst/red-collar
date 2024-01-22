@@ -62,7 +62,7 @@ const ColorShiftMaterial = shaderMaterial(
 
 extend({ ColorShiftMaterial });
 
-export function Coin(props: JSX.IntrinsicElements['group']) {
+export default function Coin(props: JSX.IntrinsicElements['group']) {
 	const { nodes, materials } = useGLTF('/main/twice-best/coin.glb') as GLTFResult;
 	const colorShiftRef = useColorShiftInterval(textures);
 	const { interactRef, handlePointerMove } = useInteractModel();

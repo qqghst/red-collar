@@ -11,6 +11,7 @@ const WhiteBg: React.FC = () => {
 				<div className={styles.canvasContainer}>
 					<Canvas shadows>
 						<ambientLight intensity={1} />
+						<directionalLight />
 						<Environment preset='studio' />
 						<Float
 							speed={2}
@@ -18,12 +19,12 @@ const WhiteBg: React.FC = () => {
 							floatIntensity={0}
 							floatingRange={[0, 0]}
 						>
-							<Suspense fallback={null}>
-								<FaceModel />
-							</Suspense>
+							<Bounds fit margin={1}>
+								<Suspense fallback={null}>
+									<FaceModel />
+								</Suspense>
+							</Bounds>
 						</Float>
-						{/* <Bounds fit clip>
-						</Bounds> */}
 					</Canvas>
 				</div>
 			</div>

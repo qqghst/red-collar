@@ -1,6 +1,8 @@
+@import '../../../../styles/variables';
+
 .title {
     position: absolute;
-    left: 100px;
-    bottom: 200px;
+    left: $padding-small;
+    bottom: 16.25vw; //260, 1600
     z-index: 20;
 }

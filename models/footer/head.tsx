@@ -63,7 +63,7 @@ const ColorShiftMaterial = shaderMaterial(
 
 extend({ ColorShiftMaterial });
 
-export function HeadFooter({
+export default function HeadFooter({
 	visible,
 	...props
 }: { visible: boolean } & JSX.IntrinsicElements['group']) {

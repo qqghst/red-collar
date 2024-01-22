@@ -23,7 +23,7 @@ const Reviews: React.FC = () => {
 
 	return (
 		<>
-			<div className='absolute top-[300px] z-[10000]'>
+			<div className='absolute top-[562.5vw] z-[10000]'>
 				<TitleSection title='отзывы' showSpan={false} showDot={false} color='white' />
 			</div>
 			<section className={styles.reviews}>

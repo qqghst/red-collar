@@ -9,7 +9,7 @@ import TitleSection from '@/ui/title-section';
 const Ratings = () => {
 	return (
 		<>
-			<div className='absolute top-[300px] z-[10000]'>
+			<div className='absolute top-[460.625vw] z-[10000]'>
 				<TitleSection title='рейтинг' showSpan={false} showDot={false} color='#fafafa' />
 			</div>
 

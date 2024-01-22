@@ -8,8 +8,8 @@ import TitleSection from '@/ui/title-section';
 const Clients: React.FC = () => {
 	return (
 		<>
-			<div className='absolute top-[300px] z-[10000]'>
-				<TitleSection title='отзывы' showSpan={false} showDot={false} color='#fafafa' />
+			<div className='absolute top-[513.75vw] z-[10000]'>
+				<TitleSection title='клиенты' showSpan={false} showDot={false} color='#fafafa' />
 			</div>
 			<section className={styles.clients}>
 				<div className={styles.clients__container}>

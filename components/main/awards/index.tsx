@@ -10,7 +10,7 @@ import TitleSection from '@/ui/title-section';
 const Awards: React.FC = () => {
 	return (
 		<>
-			<div className='absolute top-[300px] z-[10000]'>
+			<div className='absolute top-[419.5vw] z-[10000]'>
 				<TitleSection title='награды' showSpan={false} showDot={false} color='#fafafa' />
 			</div>
 			<section className={styles.awards}>

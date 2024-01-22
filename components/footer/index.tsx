@@ -7,12 +7,19 @@ import Contacts from '@/ui/contacts';
 import SocialMediaIcon from '@/ui/social-media-icon';
 import { hoverMannequin, resetHoverMannequin } from '@/store';
 import { links } from '../navbar/menu/menu-content/data';
-import { SkullFooter } from '@/models/footer/scull';
-import { HeadFooter } from '@/models/footer/head';
+// import SkullFooter  from '@/models/footer/scull';
+// import HeadFooter  from '@/models/footer/head';
 import { Canvas } from '@react-three/fiber';
 import { Environment } from '@react-three/drei';
 import TitleSection from '@/ui/title-section';
+import dynamic from 'next/dynamic';
 
+const HeadFooter = dynamic(() => import('@/models/footer/head'), {
+	ssr: false,
+});
+const SkullFooter = dynamic(() => import('@/models/footer/scull'), {
+	ssr: false,
+});
 const Footer: React.FC = () => {
 	const [isHovered, setIsHovered] = useState(false);
 
@@ -28,8 +35,8 @@ const Footer: React.FC = () => {
 
 	return (
 		<>
-			<div className='absolute top-[300px] z-[10000]'>
-				<TitleSection title='контакты' showSpan={false} showDot={false} color='#fafafa' />
+			<div className='absolute top-[683.25vw] z-[10000]'>
+				<TitleSection title='контакты' showSpan={false} showDot={false} color='#0d0c0c' />
 			</div>
 			<footer className={styles.footer}>
 				<div className={styles.footer__container}>

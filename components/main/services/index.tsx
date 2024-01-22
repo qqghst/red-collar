@@ -7,11 +7,10 @@ import TitleSection from '@/ui/title-section';
 const Services: React.FC = () => {
 	return (
 		<>
-			<div className='absolute top-[300px] z-[10000]'>
-				<TitleSection title='услуги' showSpan={false} showDot={false} color='#fafafa' />
-			</div>
-
 			<section className={styles.services}>
+				<div className='absolute top-[4vw] z-[10000]'>
+					<TitleSection title='услуги' showSpan={false} showDot={false} color='#fafafa' />
+				</div>
 				<div className={styles.services__container}>
 					<h2>
 						От аналитики и дизайна до разработки и поддержки с вниманием к каждой детали

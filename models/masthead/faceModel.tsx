@@ -25,7 +25,6 @@ import env7 from '@/public/main/masthead/7.webp';
 import env8 from '@/public/main/masthead/8.webp';
 import envWhite from '@/public/main/masthead/white.webp';
 import useColorShift from '@/hooks/useColorShift';
-import { Bloom, EffectComposer } from '@react-three/postprocessing';
 
 type GLTFResult = GLTF & {
 	nodes: {
@@ -81,8 +80,8 @@ export function FaceModel(props: JSX.IntrinsicElements['group']) {
 					receiveShadow
 					geometry={nodes.Object_5.geometry}
 					material={materials.material}
-					position={[0.009, -3, 0.325]}
-					scale={2.7}
+					position={[0.009, -3.5, 0.325]}
+					scale={4}
 				>
 					<colorShiftMaterial ref={colorShiftRef} />
 				</mesh>

@@ -7,10 +7,11 @@ import TitleSection from '@/ui/title-section';
 const BlackBg: React.FC = () => {
 	return (
 		<>
-			<div className='absolute top-[300px] z-[10000]'>
-				<TitleSection title='showreel' showSpan={true} showDot={true} color='white' />
+			<div className='absolute top-[50vw] z-[10000]'>
+				<TitleSection title='showreel' showSpan={true} showDot={true} color='#fafafa' />
 			</div>
 			<div className={styles.blackBg}>
+
 				<div>
 					<div className={styles.buttonCircleContainer}>
 						<ButtonCircle

@@ -9,7 +9,7 @@ import TitleSection from '@/ui/title-section';
 const Socials: React.FC = () => {
 	return (
 		<>
-			<div className='absolute top-[100px] z-[10000]'>
+			<div className='absolute top-[617.25vw] z-[10000]'>
 				<TitleSection title='соцсети' showSpan={false} showDot={false} color='#fafafa' />
 			</div>
 
