@@ -1,0 +1,35 @@
+@import '../../../styles/variables';
+
+.bigText {
+	h1 {
+		z-index: 1000;
+		color: $color-black;
+
+		div:nth-child(2) {
+			a {
+				color: transparent;
+				background-clip: text;
+				-webkit-background-clip: text;
+				background-repeat: no-repeat;
+				background-image: linear-gradient(to bottom, $color-red, $color-red),
+					linear-gradient(to bottom, $color-black, $color-black);
+				background-size:
+					0% 100%,
+					100% 100%;
+				background-position: 30% center;
+				transition: 0.5s ease-out;
+				line-height: 120%;
+
+				strong {
+					color: $color-red;
+					font-weight: 600;
+				}
+
+				&:hover {
+					background-size: 100% 100%;
+					background-position: 100% center;
+				}
+			}
+		}
+	}
+}

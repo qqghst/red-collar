@@ -1,0 +1,29 @@
+@import '../../../styles/variables';
+
+.services {
+	&__container {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		background-color: $color-black;
+		padding: 10vw $padding-big 25vw $padding-big; //160px 320px 400px 320px, 1600
+		// padding-top: 10vw;
+		// padding-right: $padding-big;
+		// padding-bottom: 25vw;
+		// padding-left: $padding-big;;
+
+		h2 {
+			width: 62.5vw; //1000px, 1600
+			color: $color-white;
+			margin-bottom: 128px;
+		}
+
+		.gridСontainer {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: auto auto;
+			gap: 12.5vw 15vw; //200px 240px, 1600
+		}
+	}
+}

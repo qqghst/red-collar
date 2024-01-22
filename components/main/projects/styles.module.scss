@@ -1,0 +1,59 @@
+@import '../../../styles/variables';
+
+.projects {
+	position: relative;
+	z-index: 1000;
+	background-color: $color-white;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		padding-left: 7.5vw;
+
+		gap: 21.25vw; //340px, 1600
+		padding-top: 18.75vw; //300px, 1600
+		// padding-bottom: 300px;
+		transition: background-color 1s ease;
+		overflow: hidden;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 0;
+			height: 0;
+			background-color: var(--dynamic-background-color, white);
+			transition:
+				width 1s ease-out,
+				height 1s ease-out,
+				opacity 1s ease-out;
+			border-radius: 50%;
+			transform: translate(-50%, -50%);
+			opacity: 0;
+			z-index: 0;
+		}
+
+		&.expanded::before {
+			width: 200vmax;
+			height: 200vmax;
+			opacity: 1;
+		}
+	}
+}
+
+.buttonTest {
+	padding-top: 240px;
+	padding-bottom: 300px;
+	margin: 0 auto;
+	display: flex;
+	justify-self: center;
+	align-items: center;
+}

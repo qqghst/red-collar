@@ -1,0 +1,31 @@
+@import '../../styles/variables';
+
+.contacts {
+	display: flex;
+	flex-direction: row;
+	align-self: flex-end;
+	gap: 5vw; //80px, 1600
+	color: $color-white;
+	// color: $color-black;
+    color: var(--contacts-color, white);
+
+	div:nth-child(1) {
+		display: flex;
+		flex-direction: column;
+		gap: 1vw; //16px, 1600
+
+		span {
+			font-size: 0.875vw; //14px, 1600
+		}
+	}
+
+	div:nth-child(2) {
+		display: flex;
+		flex-direction: column;
+		gap: 1vw; //16px, 1600
+
+		span {
+			font-size: 0.875vw; //14px, 1600
+		}
+	}
+}

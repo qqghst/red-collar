@@ -1,0 +1,29 @@
+@import '../../../../styles/variables';
+
+.award {
+	display: flex;
+	flex-direction: column;
+    align-items: start;
+    text-align: start; 
+    width: 100%; 
+	gap: 0.5vw; //8px, 1600
+
+	.number {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 12px;
+
+		h2 {
+			color: $color-white;
+		}
+
+		img {
+			transform: translateY(-0.625vw) //-10px, 1600;
+		}
+	}
+
+	span {
+		color: $color-white;
+	}
+}

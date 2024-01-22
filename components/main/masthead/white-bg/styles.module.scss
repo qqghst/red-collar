@@ -1,0 +1,19 @@
+.whiteBg {
+	width: 100vw;
+	height: 84vh;
+
+	.canvasScroll {
+		width: 100vw;
+		height: 300vh;
+		top: 0;
+		left: 0;
+		z-index: -1;
+
+		.canvasContainer {
+			position: sticky;
+			height: 100vh;
+			width: 100%;
+			top: 0;
+		}
+	}
+}

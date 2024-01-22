@@ -1,0 +1,61 @@
+@import '../../styles/variables';
+
+.buttonContainer {
+	.label {
+		display: inline-block !important;
+		width: max-content; 
+		position: relative; 
+
+		text-align: center;
+		overflow: hidden;
+		cursor: pointer;
+
+		background: linear-gradient(
+			to bottom,
+			var(--top-color),
+			var(--top-color) 50%,
+			var(--bottom-color) 50%
+		);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 100% 200%;
+		background-position: 0 0;
+		transition: background-position 275ms ease 0.1s;
+		transition:
+			all 0.5s ease,
+			background-position 1s ease,
+			width 0.5s ease-in-out,
+			height 0.5s ease-in-out,
+			border 0.5s ease;
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			transform: translateY(-100%);
+			border-bottom: 4px solid $color-red;
+			transition: all 0.5s ease;
+			opacity: 1;
+			margin: 0 auto;
+		}
+
+		&:hover {
+			color: $color-red;
+			background-position: 0 100%;
+			transition-delay: 0.2s;
+		}
+
+		&:hover::after {
+			opacity: 0;
+			transform: translateX(-50%) translateY(-10px);
+		}
+	}
+}
+
+.circleHidden {
+	display: none;
+	visibility: hidden;
+}

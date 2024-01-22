@@ -1,0 +1,51 @@
+.slider {
+	display: flex;
+	flex-direction: column;
+	gap: 4vw; //64, 1600
+    // height: 400px; 
+    // overflow: scroll;
+
+	.person {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 2vw; //32, 1600
+
+		div:nth-child(2) {
+			color: white;
+
+			span:nth-child(1) {
+				font-size: 20px;
+				font-weight: 600;
+				line-height: 100%;
+				letter-spacing: -0.02em;
+			}
+			p:nth-child(2) {
+				font-weight: 500;
+				font-size: 16px;
+				line-height: 160%;
+				color: #343434;
+				margin-bottom: 5px;
+			}
+			span:nth-child(3) {
+				font-size: 20px;
+				font-weight: 600;
+				line-height: 100%;
+				letter-spacing: -0.02em;
+			}
+		}
+	}
+
+	.review {
+		width: 48.75vw; //780, 1600
+
+		p {
+			font-size: 22px;
+			line-height: 140%;
+			// letter-spacing: 0.02em;
+			font-weight: 500;
+			color: white;
+			margin-left: 0.02em;
+		}
+	}
+}

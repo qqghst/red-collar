@@ -1,0 +1,8 @@
+@import '../../../styles/variables';
+
+.masthead {
+	z-index: -10;
+	&__container {
+		background-color: $color-white;
+	}
+}

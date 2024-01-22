@@ -1,0 +1,9 @@
+.logo {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5vw; //8px, 1600
+	z-index: 100;
+	transform: translateY(-0.25vw); //-4px, 1600
+}

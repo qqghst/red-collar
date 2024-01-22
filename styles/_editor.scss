@@ -1,0 +1,41 @@
+@import 'variables';
+
+h1 {
+	font-size: 8.125vw; //130px, 1600
+	font-weight: 600;
+	line-height: 0.9;
+	letter-spacing: -0.05em;
+}
+
+h2 {
+	font-size: 4vw; //64px, 1600
+	font-weight: 600;
+	line-height: 120%;
+	letter-spacing: -0.03em;
+}
+
+h3 {
+	font-size: 1vw; //16px, 1600
+	pointer-events: none;
+	color: $color-white;
+	font-weight: 600;
+}
+
+h6 {
+	font-size: 1.25vw; //20px, 1600
+	font-weight: 600;
+	// line-height: 120%;
+}
+
+span {
+	font-size: 1vw; //1px, 1600
+	font-weight: 600;
+	line-height: 100%;
+	letter-spacing: -0.02em;
+}
+
+p {
+	font-size: 0.875vw; //14px, 1600
+	font-weight: 500;
+	line-height: 200%;
+}

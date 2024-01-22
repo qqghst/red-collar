@@ -1,0 +1,29 @@
+@import '../../../../styles/variables';
+
+.service {
+    
+	h6 {
+		display: inline-block;
+		color: $color-grey;
+		border: 1px solid $color-grey;
+		border-radius: 50%;
+		opacity: 0.4;
+		padding: 0.5vw 1.75vw; //8px 28px, 1600
+		margin-bottom: 2.5vw; //40px, 1600
+		margin-left: -0.75vw; //-12px, 1600
+	}
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5vw; //24px, 1600
+		color: $color-white;
+
+		li {
+			font-size: 1vw; //16px, 1600
+			letter-spacing: -0.02em;
+			line-height: 100%;
+			font-weight: 400;
+		}
+	}
+}

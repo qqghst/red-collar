@@ -1,0 +1,66 @@
+@import '../../../../styles/variables';
+
+.menu {
+	position: fixed;
+	right: 0;
+	top: 0;
+	min-width: 100%;
+	min-height: 100%;
+	background-color: $color-black;
+	z-index: 10;
+
+	.body {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		width: 100vw;
+		height: 100vh;
+		box-sizing: border-box;
+
+		.nav {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+			gap: 20vw; //320px, 1600
+
+			.left {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: center;
+				height: 100%;
+
+				.canvasContainer {
+					height: 100%;
+					width: 100%;
+					align-self: center;
+					z-index: 1;
+				}
+
+				.contactsContainer {
+					transform: translateY(-4vw); //-64px, 1600
+				}
+			}
+
+			.right {
+				display: flex;
+				flex-direction: column;
+				gap: 48px;
+				align-items: flex-start;
+
+				.linkComponent {
+				}
+
+				.socialComponent {
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					gap: 32px;
+				}
+			}
+		}
+	}
+}

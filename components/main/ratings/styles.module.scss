@@ -1,0 +1,32 @@
+@import '../../../styles/variables';
+
+.ratings {
+	&__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background-color: $color-black;
+        padding: 0 $padding-big 25vw; //0 320px 400, 1600
+        // padding-bottom: 280px;
+
+		.pp {
+			color: $color-white;
+			font-size: 22px;
+			line-height: 1.3;
+			letter-spacing: -0.02em;
+			margin-left: 0.02em;
+            margin-bottom: 128px;
+		}
+
+		.gridСontainer {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(auto, auto));
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+			row-gap: 8.75vw; //140px
+			// gap: 8.75vw 15vw; //140px 240px, 1600
+		}
+	}
+}

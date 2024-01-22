@@ -1,0 +1,8 @@
+@import '../../styles/variables';
+
+.title {
+	position: absolute;
+	left: $padding-small;
+	top: var(--top-padding);
+	z-index: 100;
+}

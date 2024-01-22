@@ -1,0 +1,31 @@
+@import '../../../../styles/variables';
+
+.link {
+	position: relative;
+	display: flex;
+	align-items: center;
+	transition: transform 0.3s ease;
+
+	a {
+		.letterContainer {
+			display: block;
+			height: 100px;
+			overflow: hidden;
+
+			.letter {
+				position: relative;
+				display: inline-block;
+				height: 100px;
+				line-height: 100px;
+				color: $color-white;
+
+				&::after {
+					position: absolute;
+					left: 0;
+					top: 100%;
+					content: attr(data-letter);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,31 @@
+@import '../../styles/variables';
+
+.navbar {
+	position: fixed;
+	overflow-x: hidden;
+	z-index: 10;
+
+	&__container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: start;
+		width: 100vw;
+		height: 8vw; //128px, 1600
+		padding: 3vw 2vw; // 48px 32px, 1600
+
+		.logo {
+			margin-left: 4vw; //64px, 1600
+		}
+
+		.line {
+		}
+
+		.awards {
+			margin-left: -3.5vw; //-56px, 1600
+		}
+
+		.menu {
+		}
+	}
+}

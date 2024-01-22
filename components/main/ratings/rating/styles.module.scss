@@ -1,0 +1,36 @@
+@import '../../../../styles/variables';
+
+.rating {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 40px;
+
+	h1 {
+        color: $color-white
+	}
+
+	.container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        
+		.imgSpan {
+			display: flex;
+			flex-direction: row;
+			align-items: flex-end;
+			gap: 12px;
+            color: white;
+            transform: translateY(4px);
+		}
+		.p {
+			width: 260px;
+			line-height: 180%;
+            color: white;
+            transform: translateY(-4px);
+		}
+	}
+}

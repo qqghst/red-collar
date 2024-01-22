@@ -1,0 +1,35 @@
+@import '../../../../styles/variables';
+
+.container {
+	perspective: 1000px;
+	perspective-origin: bottom;
+	transform-style: preserve-3d;
+	transform-origin: center;
+	backface-visibility: hidden;
+
+	.letterContainer {
+		display: block;
+		height: 100px;
+		overflow: hidden;
+		transition: color 0.8s ease;
+
+		&:hover {
+			color: $color-red;
+		}
+
+		.letter {
+			// font-size: 72px;
+			position: relative;
+			display: inline-block;
+			height: 100px;
+			line-height: 100px;
+
+			&::after {
+				position: absolute;
+				left: 0;
+				top: 100%;
+				content: attr(data-letter);
+			}
+		}
+	}
+}

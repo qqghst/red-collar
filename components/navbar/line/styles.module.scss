@@ -1,0 +1,7 @@
+@import '../../../styles/variables';
+
+.hr {
+	border-bottom: 1px solid $color-black;
+	width: 50vw; //800px, 1600
+	height: 1px;
+}

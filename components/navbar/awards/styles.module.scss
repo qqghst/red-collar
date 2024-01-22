@@ -1,0 +1,67 @@
+.awards {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: start;
+	gap: 1.5vw; //24p, 1600;
+
+	p {
+		display: inline-block;
+		max-width: 18.75vw; //300px, 1600
+		line-height: 1.5;
+		overflow: hidden;
+
+		//чтобы избавиться от отступа наверху из-за line height
+		&::before {
+			content: '';
+			display: block;
+			height: 0;
+			width: 0;
+			margin-top: calc((1 - 1.7) * 0.5em);
+		}
+	}
+
+	ul {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		gap: 2vw; //32px, 1600
+
+		li {
+			min-height: 100vh;
+
+			.iconAndText {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				gap: 0.75vw; //12px, 1600
+
+				img {
+					width: 1.125vw; //18px, 1600
+					height: 1.125vw; //18px, 1600
+					object-fit: contain;
+					cursor: pointer;
+				}
+
+				p {
+					font-size: 0.75vw; //12px, 1600
+				}
+			}
+
+			.iconHover {
+				position: absolute;
+				width: 20vw; //320px, 1600
+				z-index: 0;
+				visibility: hidden;
+				pointer-events: none;
+
+				img {
+					width: 100%;
+					object-fit: cover;
+				}
+			}
+		}
+	}
+}
