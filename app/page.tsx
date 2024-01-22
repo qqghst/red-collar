@@ -22,16 +22,16 @@ const Home: React.FC = () => {
 
 	return (
 		<main className={styles.main}>
-			{/* <Leva />
-			<Masthead /> */}
+			{/* <Leva /> */}
+			<Masthead />
 			<Projects />
-			{/* <Services />
+			<Services />
 			<TwiceBest />
 			<Awards />
 			<Ratings />
 			<Clients />
 			<Reviews />
-			<Socials /> */}
+			<Socials />
 		</main>
 	);
 };
