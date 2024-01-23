@@ -2,6 +2,7 @@
 
 .follow {
 	&__container {
+        z-index: 1000000;
         background-color: $color-black;
         display: flex;
         flex-direction: column;
