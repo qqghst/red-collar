@@ -6,6 +6,7 @@
 		background-color: $color-black;
 		padding: 0 $padding-small 20vw $padding-small; //0 320px 320px , 1600
         position: relative;
+		z-index: 1000000;
 
 		h1 {
 			color: $color-white;
