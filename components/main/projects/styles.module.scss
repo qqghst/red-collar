@@ -15,7 +15,8 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: flex-start;
-		padding-left: 7.5vw;
+		// padding-left: 7.5vw;
+		// height: 100%;
 
 		gap: 21.25vw; //340px, 1600
 		padding-top: 18.75vw; //300px, 1600
@@ -42,8 +43,8 @@
 		}
 
 		&.expanded::before {
-			width: 200vmax;
-			height: 200vmax;
+			width: 100vmax;
+			height: 100vmax;
 			opacity: 1;
 		}
 	}

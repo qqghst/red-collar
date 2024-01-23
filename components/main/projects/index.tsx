@@ -1,33 +1,32 @@
 import React, { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Environment, Float } from '@react-three/drei';
-import TorusKnot from '@/models/projects/torusknot';
-import Icosahedron from '@/models/projects/icosahedron';
-import Tetrahedron from '@/models/projects/tetrahedron';
-import Torus from '@/models/projects/torus';
-import {
-	hoverMannequin,
-	resetHoverMannequin,
-	hoverProjectModel,
-	resetHoverProjectModel,
-} from '@/store';
+import { hoverMannequin, resetHoverMannequin, hoverProjectModel, resetHoverProjectModel } from '@/store';
 import Project from '../projects/project';
 import { hoverProject, unhoverProject, $ExpandedStore, $BackgroundColorStore } from '@/store';
 import { useUnit } from 'effector-react';
 import styles from './styles.module.scss';
 import ButtonTest from '@/ui/button-test';
+import dynamic from 'next/dynamic';
+
+const TorusKnot = dynamic(() => import('@/models/projects/torusknot'), {
+	ssr: false,
+});
+const Torus = dynamic(() => import('@/models/projects/torus'), {
+	ssr: false,
+});
+const Icosahedron = dynamic(() => import('@/models/projects/icosahedron'), {
+	ssr: false,
+});
+const Tetrahedron = dynamic(() => import('@/models/projects/tetrahedron'), {
+	ssr: false,
+});
 
 const Projects: React.FC = () => {
+	type ModelName = 'TorusKnot' | 'Torus' | 'Icosahedron' | 'Tetrahedron';
+
 	const expandedStore = useUnit($ExpandedStore);
 	const backgroundColorStore = useUnit($BackgroundColorStore);
-	const changeBackgroundColor = useCallback((color: any) => {
-		hoverProject(color);
-	}, []);
-
-	const resetBackgroundColor = useCallback(() => {
-		unhoverProject();
-	}, []);
-	type ModelName = 'TorusKnot' | 'Torus' | 'Icosahedron' | 'Tetrahedron';
 
 	const torusKnotRef = useRef<HTMLDivElement>(null);
 	const torusRef = useRef<HTMLDivElement>(null);
@@ -59,76 +58,35 @@ const Projects: React.FC = () => {
 		const tetrahedronPos = tetrahedronRef.current?.getBoundingClientRect().top ?? 0;
 
 		if (isHovered) {
-			if (
-				hoveredModel === 'TorusKnot' &&
-				torusKnotPos < window.innerHeight / 2 &&
-				torusKnotPos >= 0
-			) {
+			if (hoveredModel === 'TorusKnot' && torusKnotPos < window.innerHeight / 2 && torusKnotPos >= 0) {
 				changeModel('TorusKnot');
 				setIsHovered(false);
 				setHoveredModel(null);
-			} else if (
-				hoveredModel === 'Torus' &&
-				torusPos < window.innerHeight / 2 &&
-				torusPos >= 0
-			) {
+			} else if (hoveredModel === 'Torus' && torusPos < window.innerHeight / 2 && torusPos >= 0) {
 				changeModel('Torus');
 				setIsHovered(false);
 				setHoveredModel(null);
-			} else if (
-				hoveredModel === 'Icosahedron' &&
-				icosahedronPos < window.innerHeight / 2 &&
-				icosahedronPos >= 0
-			) {
+			} else if (hoveredModel === 'Icosahedron' && icosahedronPos < window.innerHeight / 2 && icosahedronPos >= 0) {
 				changeModel('Icosahedron');
 				setIsHovered(false);
 				setHoveredModel(null);
-			} else if (
-				hoveredModel === 'Tetrahedron' &&
-				tetrahedronPos < window.innerHeight / 2 &&
-				tetrahedronPos >= 0
-			) {
+			} else if (hoveredModel === 'Tetrahedron' && tetrahedronPos < window.innerHeight / 2 && tetrahedronPos >= 0) {
 				changeModel('Tetrahedron');
 				setIsHovered(false);
 				setHoveredModel(null);
 			}
 		} else {
-			if (
-				torusKnotPos < window.innerHeight / 2 &&
-				torusKnotPos >= 0 &&
-				visibleModel !== 'TorusKnot'
-			) {
+			if (torusKnotPos < window.innerHeight / 2 && torusKnotPos >= 0 && visibleModel !== 'TorusKnot') {
 				changeModel('TorusKnot');
-			} else if (
-				torusPos < window.innerHeight / 2 &&
-				torusPos >= 0 &&
-				visibleModel !== 'Torus'
-			) {
+			} else if (torusPos < window.innerHeight / 2 && torusPos >= 0 && visibleModel !== 'Torus') {
 				changeModel('Torus');
-			} else if (
-				icosahedronPos < window.innerHeight / 2 &&
-				icosahedronPos >= 0 &&
-				visibleModel !== 'Icosahedron'
-			) {
+			} else if (icosahedronPos < window.innerHeight / 2 && icosahedronPos >= 0 && visibleModel !== 'Icosahedron') {
 				changeModel('Icosahedron');
-			} else if (
-				tetrahedronPos < window.innerHeight / 2 &&
-				tetrahedronPos >= 0 &&
-				visibleModel !== 'Tetrahedron'
-			) {
+			} else if (tetrahedronPos < window.innerHeight / 2 && tetrahedronPos >= 0 && visibleModel !== 'Tetrahedron') {
 				changeModel('Tetrahedron');
 			}
 		}
-	}, [
-		torusKnotRef,
-		torusRef,
-		icosahedronRef,
-		tetrahedronRef,
-		isHovered,
-		hoveredModel,
-		visibleModel,
-		changeModel,
-	]);
+	}, [torusKnotRef, torusRef, icosahedronRef, tetrahedronRef, isHovered, hoveredModel, visibleModel, changeModel]);
 
 	useEffect(() => {
 		window.addEventListener('scroll', checkVisibility);
@@ -136,6 +94,14 @@ const Projects: React.FC = () => {
 			window.removeEventListener('scroll', checkVisibility);
 		};
 	}, [checkVisibility]);
+
+	const changeBackgroundColor = useCallback((color: any) => {
+		hoverProject(color);
+	}, []);
+
+	const resetBackgroundColor = useCallback(() => {
+		unhoverProject();
+	}, []);
 
 	const handleMouseEnter = useCallback(
 		(model: ModelName) => {
@@ -148,19 +114,10 @@ const Projects: React.FC = () => {
 		[changeModel],
 	);
 
-	const dynamicStyle = useMemo(
-		() => ({
-			backgroundColor: backgroundColorStore,
-			'--dynamic-background-color': backgroundColorStore,
-		}),
-		[backgroundColorStore],
-	);
-
-	// Вынесите логику в функции выше компонента
 	const onMouseEnter = useCallback(
 		(backgroundColor: string, model: ModelName) => {
 			changeBackgroundColor(backgroundColor);
-			changeModel(model);
+			handleMouseEnter(model);
 			hoverMannequin();
 		},
 		[changeBackgroundColor, changeModel],
@@ -171,32 +128,24 @@ const Projects: React.FC = () => {
 		resetBackgroundColor();
 	}, [resetBackgroundColor]);
 
+	const dynamicStyle = useMemo(
+		() => ({
+			backgroundColor: backgroundColorStore,
+			'--dynamic-background-color': backgroundColorStore,
+		}),
+		[backgroundColorStore],
+	);
+
 	return (
 		<div className={styles.projects}>
-			<div
-				className={` ${styles.projects__container} ${expandedStore ? styles.expanded : ''}`}
-				style={dynamicStyle}
-			>
+			<div className={` ${styles.projects__container} ${expandedStore ? styles.expanded : ''}`} style={dynamicStyle}>
 				<div className='z-[1010101]' ref={torusKnotRef}>
 					<Project
 						letters='тамо • ос'
 						subtitle='логистика'
 						description='О разработке высоконагруженного сервиса для таможенного оформления'
-						// onMouseEnter={() => onMouseEnter('#FFFFFF', 'TorusKnot')}
-						// onMouseLeave={onMouseLeave}
-
-						onMouseEnter={() => {
-							changeBackgroundColor('#FFFFFF');
-							handleMouseEnter('TorusKnot');
-							hoverMannequin();
-							// setTimeout(() => {
-							// 	hoverMannequin();
-							// }, 300);
-						}}
-						onMouseLeave={() => {
-							resetHoverMannequin();
-							resetBackgroundColor();
-						}}
+						onMouseEnter={() => onMouseEnter('#FFFFFF', 'TorusKnot')}
+						onMouseLeave={onMouseLeave}
 					/>
 				</div>
 				<div className='z-[1010101]' ref={torusRef}>
@@ -204,18 +153,8 @@ const Projects: React.FC = () => {
 						letters='туктук'
 						subtitle='добыча сырья'
 						description='Разработка и сопровождение B2B-сервиса для рынка нерудных материалов'
-						onMouseEnter={() => {
-							changeBackgroundColor('#EFE8E4');
-							handleMouseEnter('Torus');
-							hoverMannequin();
-							// setTimeout(() => {
-							// 	hoverMannequin();
-							// }, 300);
-						}}
-						onMouseLeave={() => {
-							resetHoverMannequin();
-							resetBackgroundColor();
-						}}
+						onMouseEnter={() => onMouseEnter('#EFE8E4', 'Torus')}
+						onMouseLeave={onMouseLeave}
 					/>
 				</div>
 				<div className='z-[1010101]' ref={icosahedronRef}>
@@ -223,18 +162,8 @@ const Projects: React.FC = () => {
 						letters='humans.uz'
 						subtitle='финтех'
 						description='Разработка, дизайн-поддержка сайта и 3D-объекты для финансового мультипродукта'
-						onMouseEnter={() => {
-							changeBackgroundColor('#FAF7EE');
-							handleMouseEnter('Icosahedron');
-							// hoverMannequin();
-							// setTimeout(() => {
-							// 	hoverMannequin();
-							// }, 300);
-						}}
-						onMouseLeave={() => {
-							resetHoverMannequin();
-							resetBackgroundColor();
-						}}
+						onMouseEnter={() => onMouseEnter('#FAF7EE', 'Icosahedron')}
+						onMouseLeave={onMouseLeave}
 					/>
 				</div>
 				<div className='z-[1010101]' ref={tetrahedronRef}>
@@ -242,18 +171,8 @@ const Projects: React.FC = () => {
 						letters='yota support'
 						subtitle='финтех'
 						description='Дизайн,маркетинг и разработка для существующих и новых продуктов компании'
-						onMouseEnter={() => {
-							changeBackgroundColor('#EDF5F7');
-							handleMouseEnter('Tetrahedron');
-							hoverMannequin();
-							// setTimeout(() => {
-							// 	hoverMannequin();
-							// }, 300);
-						}}
-						onMouseLeave={() => {
-							resetHoverMannequin();
-							resetBackgroundColor();
-						}}
+						onMouseEnter={() => onMouseEnter('#EDF5F7', 'Tetrahedron')}
+						onMouseLeave={onMouseLeave}
 					/>
 				</div>
 
@@ -268,10 +187,7 @@ const Projects: React.FC = () => {
 										visible={visibleModel === 'TorusKnot'}
 										isAnimating={startAnimatingModel === 'TorusKnot'}
 									/>
-									<Torus
-										visible={visibleModel === 'Torus'}
-										isAnimating={startAnimatingModel === 'Torus'}
-									/>
+									<Torus visible={visibleModel === 'Torus'} isAnimating={startAnimatingModel === 'Torus'} />
 									<Icosahedron
 										visible={visibleModel === 'Icosahedron'}
 										isAnimating={startAnimatingModel === 'Icosahedron'}

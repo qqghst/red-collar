@@ -12,23 +12,13 @@ interface IProjectProps {
 	onMouseLeave: () => void;
 }
 
-const Project: React.FC<IProjectProps> = ({
-	description,
-	subtitle,
-	letters,
-	onMouseEnter,
-	onMouseLeave,
-}) => {
+const Project: React.FC<IProjectProps> = ({ description, subtitle, letters, onMouseEnter, onMouseLeave }) => {
 	return (
 		<motion.div className={styles.project}>
 			<div className={styles.project__container}>
 				<span className=''>{subtitle}</span>
 				<div className=''>
-					<AnimatedLetters
-						letters={letters}
-						onMouseEnter={onMouseEnter}
-						onMouseLeave={onMouseLeave}
-					/>
+					<AnimatedLetters letters={letters} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />
 					<hr />
 				</div>
 				<span>{description}</span>
@@ -37,4 +27,4 @@ const Project: React.FC<IProjectProps> = ({
 	);
 };
 
-export default Project;
+export default React.memo(Project);

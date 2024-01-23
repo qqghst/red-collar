@@ -61,7 +61,7 @@ const ColorShiftMaterial = shaderMaterial(
 
 extend({ ColorShiftMaterial });
 
-export function FaceModel(props: JSX.IntrinsicElements['group']) {
+export default function FaceModel(props: JSX.IntrinsicElements['group']) {
 	const { nodes, materials } = useGLTF('/main/masthead/face.glb') as GLTFResult;
 
 	const mouseMovement = useMouseMovement();
@@ -69,19 +69,14 @@ export function FaceModel(props: JSX.IntrinsicElements['group']) {
 
 	return (
 		<>
-			<motion.group
-				{...(props as any)}
-				dispose={null}
-				rotation-y={mouseMovement.x}
-				rotation-x={mouseMovement.y}
-			>
+			<motion.group {...(props as any)} dispose={null} rotation-y={mouseMovement.x} rotation-x={mouseMovement.y}>
 				<mesh
 					castShadow
 					receiveShadow
 					geometry={nodes.Object_5.geometry}
 					material={materials.material}
-					position={[0.009, -3.5, 0.325]}
-					scale={4}
+					position={[0.009, -2.4, 0.325]}
+					scale={2.4}
 				>
 					<colorShiftMaterial ref={colorShiftRef} />
 				</mesh>
