@@ -15,7 +15,7 @@ import Ratings from '@/components/main/ratings';
 const Home: React.FC = () => {
 	// const Masthead = dynamic(() => import('@/components/main/masthead'), {
 	// 	ssr: false,
-	// 	// loading: () => <img className='placeholder-masthead' src='/main/masthead/placeholder.webp'></img>,
+	// 	loading: () => <img className='placeholder-masthead' src='/main/masthead/placeholder2.png'></img>,
 	// });
 
 	return (
